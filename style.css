@@ -1,0 +1,67 @@
+/* styles.css */
+background:linear-gradient(180deg,#071233 0%, #071b2e 100%);
+color:#e6eef8;
+display:flex;align-items:center;justify-content:center;
+padding:32px;
+}
+.container{max-width:1000px;width:100%;}
+header h1{margin:0 0 4px 0}
+.controls{display:flex;gap:12px;margin:18px 0}
+.btn{
+background:var(--accent);
+color:white;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;
+transition:transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+.btn:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(79,70,229,0.18)}
+.btn.secondary{background:#0ea5a3}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+
+.stage{display:flex;gap:24px;align-items:center}
+.box{
+width:140px;height:140px;background:linear-gradient(180deg,var(--accent),#7c3aed);
+display:flex;align-items:center;justify-content:center;border-radius:12px;
+font-weight:700;color:white;transform:translateY(0) scale(1);
+transition:transform 600ms cubic-bezier(.22,.9,.32,1), opacity 450ms ease;
+}
+.box.animating{
+transform:translateY(-40px) rotate(-6deg) scale(1.06);
+}
+
+
+/* Card flip (hover OR toggled by JS) */
+.card{width:160px;height:200px;perspective:1000px}
+.card-inner{position:relative;width:100%;height:100%;transition:transform 600ms ease;transform-style:preserve-3d;border-radius:12px}
+.card:hover .card-inner{transform:rotateY(180deg)}
+.card.flip .card-inner{transform:rotateY(180deg)}
+.card-front,.card-back{
+position:absolute;inset:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;
+backface-visibility:hidden;background:linear-gradient(180deg,#0ea5a3,#06b6d4);
+}
+.card-front{background:linear-gradient(180deg,#06b6d4,#0ea5a3)}
+.card-back{transform:rotateY(180deg);background:linear-gradient(180deg,#1e293b,#0b1220)}
+
+
+/* Loader using keyframes */
+.loader{width:64px;height:64px;border-radius:999px;position:relative}
+.loader::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 8px 30px rgba(79,70,229,0.25);}
+.loader:not(.hidden){
+animation:spin 1.2s linear infinite, pulse 2.4s ease-in-out infinite;
+}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35) saturate(1.05)}}
+.hidden{opacity:0;pointer-events:none}
+
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:24px;}
+.modal .modal-content{width:100%;max-width:560px;background:linear-gradient(180deg,#071233,#0b1220);border-radius:12px;padding:20px;box-shadow:0 30px 60px rgba(2,6,23,0.6);transform:translateY(20px);opacity:0;transition:transform 420ms cubic-bezier(.2,.9,.25,1),opacity 420ms ease}
+.modal.show .modal-content{transform:translateY(0);opacity:1}
+.modal.hidden{display:none}
+.close{position:absolute;right:18px;top:16px;background:none;border:0;color:#cbd5e1;font-size:18px;cursor:pointer}
+
+
+/* small responsiveness */
+@media (max-width:640px){
+.stage{flex-direction:column}
+}

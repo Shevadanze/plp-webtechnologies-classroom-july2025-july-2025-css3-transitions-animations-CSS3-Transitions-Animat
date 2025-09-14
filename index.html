@@ -1,0 +1,59 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Interactive Animations — Demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="container">
+<header>
+<h1>Interactive Animations Demo</h1>
+<p>CSS transitions, keyframes and JS-driven triggers with reusable functions.</p>
+</header>
+
+
+<section class="controls">
+<button id="animateBtn" class="btn">Animate Box</button>
+<button id="toggleLoader" class="btn secondary">Toggle Loader</button>
+<button id="openModal" class="btn ghost">Open Modal</button>
+</section>
+
+
+<section class="stage">
+<div id="box" class="box">Box</div>
+
+
+<div class="card" id="card">
+<div class="card-inner">
+<div class="card-front">Front</div>
+<div class="card-back">Back</div>
+</div>
+</div>
+
+
+<div id="loader" class="loader hidden" aria-hidden="true"></div>
+</section>
+
+
+<!-- modal -->
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+<div class="modal-content">
+<button id="closeModal" class="close">✕</button>
+<h2>Modal title</h2>
+<p>This modal slides in and fades out using CSS. It is triggered by JS functions.</p>
+</div>
+</div>
+
+
+<footer>
+<small>Demo — uses CSS transitions, @keyframes and JS to toggle classes</small>
+</footer>
+</main>
+
+
+<script src="script.js"></script>
+</body>
+</html>
